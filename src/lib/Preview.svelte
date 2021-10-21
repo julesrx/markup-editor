@@ -6,12 +6,14 @@
   import { text, language, MarkupLanguage } from '../store';
 
   let markup: string;
-  const m = text.subscribe((t) => (markup = marked(t)));
+  const m = text.subscribe(t => (markup = marked(t)));
 
   let lang: MarkupLanguage;
-  const l = language.subscribe((m) => (lang = m));
+  const l = language.subscribe(m => (lang = m));
 
   const generateHtml = (text: string, lang: MarkupLanguage) => {
+    if (!text) return '';
+
     switch (lang) {
       case MarkupLanguage.Markdown:
       default:

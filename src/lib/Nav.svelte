@@ -9,7 +9,7 @@
   }
 
   let selected: string;
-  language.subscribe((l) => (selected = l.toString())); // not working
+  language.subscribe((l) => (selected = l?.toString())); // not working
 
   $: (() => language.set(MarkupLanguage[selected]))();
 </script>
