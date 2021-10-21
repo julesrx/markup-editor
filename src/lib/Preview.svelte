@@ -14,6 +14,8 @@
   const generateHtml = (text: string, lang: MarkupLanguage) => {
     if (!text) return '';
 
+    // https://github.com/cure53/DOMPurify
+
     switch (lang) {
       case MarkupLanguage.Markdown:
       default:
@@ -29,4 +31,6 @@
   onDestroy(() => (m(), l()));
 </script>
 
-<article class="h-full w-1/2 p-2 prose">{@html html}</article>
+<div class="h-full w-1/2 p-2">
+  <article class="prose">{@html html}</article>
+</div>
