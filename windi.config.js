@@ -1,19 +1,22 @@
-import { defineConfig } from 'windicss/helpers';
-import typography from 'windicss/plugin/typography';
+import defaultTheme from 'windicss/defaultTheme';
 
-export default defineConfig({
-  darkMode: 'class',
+export default {
   theme: {
     extend: {
       typography: {
         DEFAULT: {
           css: {
-            // h2: { marginTop: '1rem' },
-            img: { marginTop: '.5rem', marginBottom: '.5rem' }
+            color: defaultTheme.colors.light['50'],
+            a: {
+              color: '#3182ce',
+              '&:hover': {
+                color: '#2c5282'
+              }
+            }
           }
         }
       }
     }
   },
-  plugins: [typography({ dark: true })]
-});
+  plugins: [require('windicss/plugin/typography')]
+};

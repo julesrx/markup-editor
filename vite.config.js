@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
+
+import vue from '@vitejs/plugin-vue';
 import windicss from 'vite-plugin-windicss';
+import raw from 'vite-raw-plugin';
 
 export default defineConfig({
-  plugins: [svelte(), windicss()],
+  plugins: [vue(), windicss(), raw({ fileRegex: /\.md$/ })]
 });
