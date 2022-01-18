@@ -1,7 +1,15 @@
-# Vue 3 + Vite
+# Markup Editor
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![Github Pages](https://github.com/julesrx/markup-editor/actions/workflows/gh-pages.yml/badge.svg)](https://julesrx.github.io/markup-editor/)
 
-## Recommended IDE Setup
+Markup editor for diverse markup languages.
+Built with [Vue 3](https://v3.vuejs.org/), [Vite](https://vitejs.dev/) and [Windi CSS](https://windicss.org/).
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## How to run
+
+```
+git clone git@github.com:julesrx/markup-editor.git
+cd markup-editor
+pnpm install
+pnpm dev
+```
