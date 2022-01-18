@@ -22,6 +22,7 @@ h5,
 h6,
 strong,
 blockquote,
+code,
 li::before {
   @apply !text-[inherit];
 }
