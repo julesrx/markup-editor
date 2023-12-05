@@ -1,3 +1,5 @@
+const baseURL = '/markup-editor';
+
 export default defineNuxtConfig({
     devtools: { enabled: true },
     ssr: false,
@@ -10,11 +12,12 @@ export default defineNuxtConfig({
         }
     },
     app: {
-        baseURL: '/markup-editor',
+        baseURL,
         head: {
             title: 'Markup Editor',
             htmlAttrs: { lang: 'en' },
-            bodyAttrs: { class: 'text-stone-100 bg-black' }
+            bodyAttrs: { class: 'text-stone-100 bg-black' },
+            link: [{ rel: 'icon', type: 'image/svg+xml', href: `${baseURL}/favicon.svg` }]
         }
     }
 });
