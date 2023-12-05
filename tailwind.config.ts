@@ -1,7 +1,7 @@
+import type { Config } from 'tailwindcss';
 import typography from '@tailwindcss/typography';
 
-/** @type {import('tailwindcss').Config} */
-export default {
+const config: Config = {
     content: [
         './components/**/*.{js,vue,ts}',
         './layouts/**/*.vue',
@@ -14,3 +14,5 @@ export default {
     theme: { extend: {} },
     plugins: [typography]
 };
+
+export default config;
