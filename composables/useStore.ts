@@ -44,13 +44,28 @@ export default defineStore('markup', () => {
         switch (mode.value) {
             case modes.markdown:
             default:
-                return marked(markup.value) as string;
+                return marked(markup.value, { gfm: true }) as string;
             case modes.textile:
                 return textile(markup.value);
         }
     });
 
-    const html = computed<string>(() => dompurify.sanitize(parsed.value));
+    const html = computed<string>(() => {
+        const sanitized = dompurify.sanitize(parsed.value);
+
+        const el = document.createElement('div');
+        el.innerHTML = sanitized;
+
+        const links = el.getElementsByTagName('a');
+        for (const link of links) {
+            if (link.href.includes('http://') || link.href.includes('https://')) {
+                link.target = '_blank';
+                link.rel = 'nofollow';
+            }
+        }
+
+        return el.innerHTML;
+    });
 
     return { markup, mode, html };
 });
