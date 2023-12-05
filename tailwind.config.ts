@@ -12,17 +12,7 @@ const config: Config = {
         './error.vue',
         './nuxt.config.ts'
     ],
-    theme: {
-        extend: {
-            typography: ({ theme }: { theme: (val: string) => string }) => ({
-                stone: {
-                    css: {
-                        '--tw-prose-invert-body': theme('colors.stone[200]')
-                    }
-                }
-            })
-        }
-    },
+    theme: { extend: {} },
     plugins: [typography]
 };
 

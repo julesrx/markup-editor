@@ -3,16 +3,15 @@
 @tailwind utilities;
 
 @layer base {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    blockquote,
-    code,
-    li::before {
-        @apply !text-[inherit];
+    ::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-stone-700 hover:bg-stone-600;
     }
 }
