@@ -1,19 +1,44 @@
 import { marked } from 'marked';
 import textile from 'textile-js';
 import createDOMPurify from 'dompurify';
+import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string';
 
 const dompurify = createDOMPurify();
 
 import defaultValue from '~/default.md?raw';
 
 export default defineStore('markup', () => {
-    const markup = ref(localStorage.getItem('markup') || defaultValue);
-    watch(markup, markup => localStorage.setItem('markup', markup));
+    const route = useRoute();
+    const router = useRouter();
 
-    const mode = ref(localStorage.getItem('mode') || modes.markdown);
+    const markup = ref<string>(
+        (() => {
+            const hash = route.hash.replace('#', '');
+            if (!hash) return defaultValue;
+
+            try {
+                return decompressFromEncodedURIComponent(hash);
+            } catch {
+                return defaultValue;
+            }
+        })()
+    );
+
+    watchDebounced(
+        markup,
+        markup => {
+            if (!markup) return router.replace({});
+
+            const hash = compressToEncodedURIComponent(markup);
+            router.replace({ hash: `#${hash}` });
+        },
+        { debounce: 500 }
+    );
+
+    const mode = ref<string>(localStorage.getItem('mode') || modes.markdown);
     watch(mode, mode => localStorage.setItem('mode', mode));
 
-    const parsed = computed(() => {
+    const parsed = computed<string>(() => {
         if (!markup.value) return '';
 
         switch (mode.value) {
@@ -25,7 +50,7 @@ export default defineStore('markup', () => {
         }
     });
 
-    const html = computed(() => dompurify.sanitize(parsed.value));
+    const html = computed<string>(() => dompurify.sanitize(parsed.value));
 
     return { markup, mode, html };
 });

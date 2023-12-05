@@ -3,7 +3,7 @@ const baseURL = '/markup-editor';
 export default defineNuxtConfig({
     devtools: { enabled: true },
     ssr: false,
-    modules: ['@pinia/nuxt'],
+    modules: ['@pinia/nuxt', '@vueuse/nuxt'],
     css: ['~/assets/main.css'],
     postcss: {
         plugins: {

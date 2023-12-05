@@ -7,19 +7,20 @@ onMounted(() => {
 
     const tab = '  ';
 
-    textarea.value.addEventListener('keydown', async e => {
-        const textarea = e.target as HTMLTextAreaElement;
+    useEventListener(textarea.value, 'keydown', async e => {
         if (e.code !== 'Tab') return;
 
         e.preventDefault();
 
+        const target = e.target as HTMLTextAreaElement;
+
         let newValue;
-        const selectionStart = textarea.selectionStart;
-        const currentValue = textarea.value;
+        const selectionStart = target.selectionStart;
+        const currentValue = target.value;
 
         if (currentValue) {
-            const valueBefore = textarea.value.substring(0, selectionStart);
-            const valueAfter = textarea.value.substring(selectionStart);
+            const valueBefore = target.value.substring(0, selectionStart);
+            const valueAfter = target.value.substring(selectionStart);
 
             newValue = valueBefore + tab + valueAfter;
         } else {
@@ -30,8 +31,8 @@ onMounted(() => {
 
         await nextTick();
 
-        textarea.selectionStart = selectionStart + tab.length;
-        textarea.selectionEnd = textarea.selectionStart;
+        target.selectionStart = selectionStart + tab.length;
+        target.selectionEnd = target.selectionStart;
     });
 });
 </script>
