@@ -16,7 +16,7 @@ export default defineNuxtConfig({
         head: {
             title: 'Markup Editor',
             htmlAttrs: { lang: 'en' },
-            bodyAttrs: { class: 'text-stone-100 bg-black' },
+            bodyAttrs: { class: 'text-stone-200 bg-stone-950' },
             link: [{ rel: 'icon', type: 'image/svg+xml', href: `${baseURL}/favicon.svg` }]
         }
     }

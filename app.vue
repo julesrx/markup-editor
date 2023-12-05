@@ -1,5 +1,5 @@
 <template>
-    <main class="grid grid-cols-2 h-screen divide-x divide-dark-500">
+    <main class="grid grid-cols-2 h-screen divide-x divide-stone-800">
         <Editor />
         <Preview />
     </main>
