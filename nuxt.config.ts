@@ -10,6 +10,7 @@ export default defineNuxtConfig({
         }
     },
     app: {
+        baseURL: '/markup-editor',
         head: {
             title: 'Markup Editor',
             htmlAttrs: { lang: 'en' },
