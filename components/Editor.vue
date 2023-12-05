@@ -3,7 +3,7 @@ const store = useStore();
 </script>
 
 <template>
-    <div class="relative h-screen overflow-hidden text-sm">
+    <div class="relative overflow-hidden text-sm">
         <textarea
             class="bg-transparent resize-none p-5 w-full h-full"
             v-model="store.markup"
