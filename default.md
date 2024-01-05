@@ -26,8 +26,5 @@ It's easy. It's not overly bloated, unlike HTML. Also, as the creator of [markdo
 > looking like it's been marked up with tags
 > or formatting instructions.
 
-Ready to start writing? Either start changing stuff on the left or
-[clear everything](/demo/?text=) with a simple click.
-
 [marked]: https://github.com/markedjs/marked/
 [markdown]: http://daringfireball.net/projects/markdown/
